@@ -5,7 +5,7 @@ require 'incredible/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'Incredible'
+  s.name        = 'incredible'
   s.version     = Incredible::VERSION
   s.authors     = ['pezholio']
   s.email       = ['pezholio@gmail.com']
