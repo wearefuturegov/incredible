@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Incredible::Loader do
-
   describe 'self.load' do
     
     let(:form_name) { 'form' }
@@ -34,5 +33,4 @@ describe Incredible::Loader do
     end
     
   end
-  
 end
