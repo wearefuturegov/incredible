@@ -3,21 +3,30 @@ module Incredible
     extend ActiveSupport::Concern
     include Wicked::Wizard
     
-    attr_accessor :wizard_form, :step, :template, :rules, :questions
+    attr_accessor :wizard_form, :step_data, :template, :rules, :questions
 
     included do
-      before_action :load_step_data
+      before_action :load_step
       before_action :process_rules, only: :update
+      before_action :load_step_data
+    end
+    
+    def load_step
+      self.step_data = wizard_form.find_step(params[:id])
     end
     
     def load_step_data
-      step = wizard_form.find_step(params[:id])
-      self.template = step.template
-      self.rules = step.rules
-      self.questions = step.questions
+      self.template = step_data.template
+      self.questions = step_data.questions
     end
     
-    def process_rules; end
+    def process_rules
+      self.rules = step_data.rules
+      next_step = permitted_params.to_h.map do |k, v|
+        rules.dig(k, v)
+      end&.first
+      jump_to next_step if next_step
+    end
     
     module ClassMethods
       def form(form_name)

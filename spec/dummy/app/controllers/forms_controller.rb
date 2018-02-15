@@ -8,6 +8,14 @@ class FormsController < ActionController::Base
   end
 
   def update
-    render_wizard initial_application
+    @model = StubModel.new(permitted_params)
+    render_wizard @model
   end
+  
+  private
+  
+  def permitted_params
+    params.require(:model).permit(:name, :postcode, :email, :phone_number)
+  end
+
 end

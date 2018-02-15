@@ -2,8 +2,10 @@ form:
   name: 'Test form'
   steps:
     step1:
-      foo: bar
       template: foo
+      rules:
+        name:
+          'Mike': :step3
       questions:
         - name: :name
           title: Your full name
@@ -12,7 +14,6 @@ form:
           title: Your postcode
           widget: :input
     step2:
-      foo: baz
       template: bar
       questions:
         - name: :email
@@ -21,4 +22,7 @@ form:
         - name: :phone_number
           title: Phone Number
           widget: :tel
+    step3:
+      template: :baz
+      
       

@@ -16,4 +16,18 @@ describe FormsController, type: :controller do
     end
   end
   
+  context 'rules' do
+    it 'follows a rule' do
+      expect(
+        (put :update, params: { id: :step1, model: { name: 'Mike' } })
+      ).to redirect_to('http://test.host/forms/step3')
+    end
+    
+    it 'goes to the next step by default' do
+      expect(
+        (put :update, params: { id: :step1, model: { name: 'Ian' } })
+      ).to redirect_to('http://test.host/forms/step2')
+    end
+  end
+  
 end
