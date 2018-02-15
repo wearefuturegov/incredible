@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Incredible::Engine => '/incredible'
+  resources :forms
 end

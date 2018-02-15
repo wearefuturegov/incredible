@@ -3,5 +3,22 @@ form:
   steps:
     step1:
       foo: bar
+      template: foo
+      questions:
+        - name: :name
+          title: Your full name
+          widget: :input
+        - name: :postcode
+          title: Your postcode
+          widget: :input
     step2:
       foo: baz
+      template: bar
+      questions:
+        - name: :email
+          title: Email
+          widget: :email
+        - name: :phone_number
+          title: Phone Number
+          widget: :tel
+      
