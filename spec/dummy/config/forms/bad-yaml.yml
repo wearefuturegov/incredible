@@ -1,0 +1,7 @@
+form:
+  name: 'Test form'
+  steps:-
+    step1:
+      foo: bar
+    step2:
+      foo: baz

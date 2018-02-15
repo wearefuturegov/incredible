@@ -6,3 +6,5 @@ Documentation:
   Enabled: false
 Layout/TrailingWhitespace:
   Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

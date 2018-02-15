@@ -11,24 +11,3 @@
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 83
-
-# Offense count: 14
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: when_needed, always, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'app/controllers/incredible/application_controller.rb'
-    - 'app/helpers/incredible/application_helper.rb'
-    - 'app/jobs/incredible/application_job.rb'
-    - 'app/mailers/incredible/application_mailer.rb'
-    - 'app/models/incredible/application_record.rb'
-    - 'bin/rails'
-    - 'config/routes.rb'
-    - 'incredible.gemspec'
-    - 'lib/incredible.rb'
-    - 'lib/incredible/engine.rb'
-    - 'lib/incredible/version.rb'
-    - 'lib/tasks/incredible_tasks.rake'
