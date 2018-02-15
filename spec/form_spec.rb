@@ -7,7 +7,7 @@ describe Incredible::Form do
   describe '#step_names' do
     
     it 'returns step names' do
-      expect(subject.step_names).to match_array(%w[step1 step2])
+      expect(subject.step_names).to match_array(%w[step1 step2 step3])
     end
     
   end
@@ -15,7 +15,7 @@ describe Incredible::Form do
   describe '#steps' do
     
     it 'returns the correct amount of steps' do
-      expect(subject.steps.count).to eq(2)
+      expect(subject.steps.count).to eq(3)
     end
     
     it 'returns steps as Steps' do
