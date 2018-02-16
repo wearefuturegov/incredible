@@ -21,7 +21,7 @@ module Incredible
     end
     
     def process_rules
-      self.rules = step_data.rules
+      self.rules = step_data.rules || {}
       next_step = permitted_params.to_h.map do |k, v|
         rules.dig(k, v)
       end&.first
