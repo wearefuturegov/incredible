@@ -6,9 +6,9 @@ module Incredible
     attr_accessor :wizard_form, :step_data, :template, :rules, :questions
 
     included do
-      before_action :load_step
+      before_action :load_step, only: %i[show update]
       before_action :process_rules, only: :update
-      before_action :load_step_data
+      before_action :load_step_data, only: %i[show update]
     end
     
     def load_step
