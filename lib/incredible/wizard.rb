@@ -21,11 +21,9 @@ module Incredible
     end
     
     def process_rules
-      self.rules = step_data.rules || {}
-      next_step = permitted_params.to_h.map do |k, v|
-        rules.dig(k, v)
-      end&.first
-      jump_to next_step if next_step
+      return unless step_data.rule
+      next_step = step_data.rule.send(:process, permitted_params)
+      jump_to next_step
     end
     
     module ClassMethods
