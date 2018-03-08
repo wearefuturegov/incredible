@@ -10,17 +10,11 @@ describe Incredible::Step do
           widget: 'text'
         }
       ],
-      rules: {
-        name: {
-          'Someone' => :next_step,
-          'Someone else' => :last_step
-        }
-      },
       template: 'my_template'
     }
   end
   
-  let(:subject) { Incredible::Step.new(hash) }
+  let(:subject) { Incredible::Step.new('rule', hash) }
   
   context '#questions' do
     
@@ -37,15 +31,30 @@ describe Incredible::Step do
     
   end
 
-  context '#rules' do
+  context '#rule' do
     
-    it 'returns the rules' do
-      expect(subject.rules).to eq(
-        name: {
-          'Someone' => :next_step,
-          'Someone else' => :last_step
-        }
-      )
+    context 'when a rule is not present' do
+      
+      before do
+        Object.send(:remove_const, :RuleRule) if defined?(RuleRule)
+      end
+    
+      it 'returns nil' do
+        expect(subject.rule).to eq(nil)
+      end
+      
+    end
+    
+    context 'when a rule is present' do
+      
+      before do
+        Object.const_set('RuleRule', Class.new)
+      end
+    
+      it 'returns the rule' do
+        expect(subject.rule).to eq(RuleRule)
+      end
+      
     end
     
   end

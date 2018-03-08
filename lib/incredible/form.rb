@@ -9,7 +9,7 @@ module Incredible
     end
     
     def steps
-      @steps ||= raw_steps.map { |k, v| { k => Step.new(v) } }.reduce(:merge)
+      @steps ||= raw_steps.map { |k, v| { k => Step.new(k, v) } }.reduce(:merge)
     end
     
     def find_step(step_name)
