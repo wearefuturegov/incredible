@@ -22,7 +22,7 @@ module Incredible
     
     def process_rules
       return unless step_data.rule
-      next_step = step_data.rule.send(:process, permitted_params)
+      next_step = step_data.rule.send(:process, params)
       jump_to next_step
     end
     
