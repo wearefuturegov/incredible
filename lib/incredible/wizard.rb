@@ -22,8 +22,8 @@ module Incredible
     
     def process_rules
       return unless step_data.rule
-      next_step = step_data.rule.send(:process, params)
-      jump_to next_step
+      @rule = step_data.rule.send(:new, params)
+      jump_to @rule.next_step
     end
     
     module ClassMethods

@@ -9,7 +9,7 @@ class FormsController < ActionController::Base
 
   def update
     @model = StubModel.new(permitted_params)
-    render_wizard @model
+    render_wizard @model, {}, (@rule&.next_params || {})
   end
   
   private

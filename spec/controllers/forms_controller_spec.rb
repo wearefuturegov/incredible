@@ -20,7 +20,7 @@ describe FormsController, type: :controller do
     it 'follows a rule' do
       expect(
         (put :update, params: { id: :step1, model: { name: 'Mike' } })
-      ).to redirect_to('http://test.host/forms/step3')
+      ).to redirect_to('http://test.host/forms/step3?foo=bar')
     end
     
     it 'goes to the next step by default' do
