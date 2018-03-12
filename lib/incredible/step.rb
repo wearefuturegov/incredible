@@ -13,7 +13,7 @@ module Incredible
     end
     
     def rule
-      rule_class = "#{@name.classify}Rule"
+      rule_class = "#{@name.camelize}Rule"
       rule_class.constantize
     rescue NameError
       nil
