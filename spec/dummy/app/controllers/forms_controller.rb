@@ -17,5 +17,4 @@ class FormsController < ActionController::Base
   def permitted_params
     params.require(:model).permit(:name, :postcode, :email, :phone_number)
   end
-
 end

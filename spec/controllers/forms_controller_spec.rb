@@ -30,4 +30,19 @@ describe FormsController, type: :controller do
     end
   end
   
+  context 'next step is specified' do
+    it 'goes to that step' do
+      expect(
+        (put :update, params: {
+          id: :step2,
+          model: {
+            email: 'me@example.org',
+            phone_number: '323232'
+          }
+        }
+        )
+      ).to redirect_to('http://test.host/forms/step4')
+    end
+  end
+  
 end

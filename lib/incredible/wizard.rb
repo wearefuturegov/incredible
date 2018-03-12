@@ -7,7 +7,7 @@ module Incredible
 
     included do
       before_action :load_step, only: %i[show update]
-      before_action :process_rules, only: :update
+      before_action :load_next_step, only: :update
       before_action :load_step_data, only: %i[show update]
     end
     
@@ -20,10 +20,13 @@ module Incredible
       self.questions = step_data.questions
     end
     
-    def process_rules
-      return unless step_data.rule
-      @rule = step_data.rule.send(:new, params)
-      jump_to @rule.next_step
+    def load_next_step
+      if step_data.rule
+        @rule = step_data.rule.send(:new, params)
+        jump_to @rule.next_step
+      elsif step_data.next_step
+        jump_to step_data.next_step
+      end
     end
     
     module ClassMethods

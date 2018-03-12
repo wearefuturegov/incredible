@@ -9,7 +9,7 @@ describe Incredible::Loader do
     it 'loads a form' do
       expect(form).to be_a(Hash)
       expect(form['form']['name']).to eq('Test form')
-      expect(form['form']['steps'].keys).to eq(%w[step1 step2 step3])
+      expect(form['form']['steps'].keys).to eq(%w[step1 step2 step3 step4])
     end
     
     context 'with non-existent form' do

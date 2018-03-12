@@ -15,6 +15,7 @@ form:
           widget: :input
     step2:
       template: bar
+      next_step: :step4
       questions:
         - name: :email
           title: Email
@@ -24,5 +25,7 @@ form:
           widget: :tel
     step3:
       template: :baz
+    step4:
+      template: :bar
       
       
