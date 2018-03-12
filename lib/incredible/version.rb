@@ -1,3 +1,3 @@
 module Incredible
-  VERSION = '0.0.3.pre'.freeze
+  VERSION = '0.0.4.pre'.freeze
 end
