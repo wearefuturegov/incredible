@@ -23,9 +23,17 @@ module Incredible
     def load_next_step
       if step_data.rule
         @rule = step_data.rule.send(:new, params)
-        jump_to @rule.next_step
+        process_rule
       elsif step_data.next_step
         jump_to step_data.next_step
+      end
+    end
+    
+    def process_rule
+      if @rule.next_step
+        jump_to @rule.next_step
+      elsif @rule.redirect
+        redirect_to @rule.redirect
       end
     end
     

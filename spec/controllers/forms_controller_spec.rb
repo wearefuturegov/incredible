@@ -28,6 +28,12 @@ describe FormsController, type: :controller do
         (put :update, params: { id: :step1, model: { name: 'Ian' } })
       ).to redirect_to('http://test.host/forms/step2')
     end
+    
+    it 'redirects to another url' do
+      expect(
+        (put :update, params: { id: :step3 })
+      ).to redirect_to('http://test.host/things')
+    end
   end
   
   context 'next step is specified' do
