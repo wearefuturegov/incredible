@@ -1,5 +1,7 @@
 module Incredible
   class Step
+    
+    attr_accessor :data
         
     def initialize(name, data)
       @name = name.to_s
