@@ -22,7 +22,7 @@ module Incredible
     
     def load_next_step
       if incredible_step.rule
-        @rule = incredible_step.rule.send(:new, params)
+        @rule = incredible_step.rule.send(:new, params, request)
         process_rule
       elsif incredible_step.next_step
         jump_to incredible_step.next_step

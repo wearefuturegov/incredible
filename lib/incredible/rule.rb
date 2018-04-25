@@ -4,9 +4,11 @@ module Incredible
     attr_accessor :redirect
     attr_accessor :next_step
     attr_reader :params
+    attr_reader :request
   
-    def initialize(params)
+    def initialize(params, request)
       @params = params
+      @request = request
       process
     end
     
